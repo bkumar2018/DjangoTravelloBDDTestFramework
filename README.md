@@ -1,2 +1,2 @@
 # DjangoTravelloBDDTestFramework
-This BDD Test Framework for Testing Django-travello-website
+This is BDD Test Framework for Testing Django-travello-website
