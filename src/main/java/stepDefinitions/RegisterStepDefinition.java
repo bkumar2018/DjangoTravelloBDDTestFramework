@@ -71,10 +71,27 @@ public class RegisterStepDefinition {
 		Assert.assertEquals("Login Page", title);
 	}
 	
+	@Then("^register user login to page$")
+	public void register_user_login_to_page(DataTable dataTbl) {
+		 List<List<String>> data = dataTbl.raw();
+	    
+		driver.findElement(By.name("username")).sendKeys(data.get(0).get(0));
+		driver.findElement(By.name("password")).sendKeys(data.get(0).get(1));
+	}	
+	
+	@Then("^user clicks on submit button of login page$")
+	public void user_click_on_submit_login_page() {
+		WebElement submitbtn = driver.findElement(By.xpath("//input[@type='submit']"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", submitbtn);
+	}
+	
 	@Then("^close the browser$")
 	public void close_the_browser() {
-	   driver.close();
+	   //driver.close();
+		driver.quit();
 	}
+	
 
 	
 }
